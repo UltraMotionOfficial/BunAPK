@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=77.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bunapk"
+version = "2.0.0"
+description = "BunAPK — download complete Android app bundles (all architectures, densities and languages) from Google Play as installable .apks files. A free command-line alternative to APKMirror, APKPure and APKCombo, with support for old app versions and archiving."
+readme = "readme.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{name = "UltraMotionOfficial"}]
+keywords = [
+    "bunapk", "google-play", "apk", "apks", "downloader", "android",
+    "split-apk", "app-bundle", "apk-archive", "old-apk-versions",
+    "apkmirror-alternative", "apkpure-alternative", "apkcombo-alternative",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+]
+dependencies = [
+    # Typer's rich_utils panel helpers power the custom --help layout; cap below
+    # the next major to guard against changes to that (semi-private) API.
+    "typer>=0.12,<1.0",
+    # click is imported directly (custom TyperGroup, UsageError handling), so
+    # it is pinned explicitly rather than relied on transitively through typer.
+    "click>=8.0",
+    "rich>=13.0.0",
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+bunapk = "bunapk.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/UltraMotionOfficial/BunAPK"
+Repository = "https://github.com/UltraMotionOfficial/BunAPK"
+Issues = "https://github.com/UltraMotionOfficial/BunAPK/issues"
+
+[tool.setuptools.packages.find]
+include = ["bunapk*"]
+
+[tool.setuptools.package-data]
+bunapk = ["profiles/*.properties"]

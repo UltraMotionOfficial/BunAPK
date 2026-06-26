@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+*.apk
+*.apks
+*.obb
+
+# Downloaded bundle output
+/output/
+.venv/
+venv/
+env/
+.env
+*.so
+.mypy_cache/
+.ruff_cache/
+.DS_Store
